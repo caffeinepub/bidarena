@@ -1,0 +1,16 @@
+{
+  "backend/main.mo": "Defines an empty Motoko actor with no methods.",
+  "feature_evidence.json": "Contains metadata for a feature update replacing the BidArena logo, listing affected files and components.",
+  "frontend-file-summaries.txt": "Provides short descriptions of various frontend files including styles, config, content data, components, and the App entry.",
+  "frontend/index.css": "Defines global Tailwind base styles and OKLCH color variables for light and dark themes.",
+  "frontend/index.html": "Basic HTML shell loading the React app via main.tsx.",
+  "frontend/src/App.tsx": "Main landing page component with header, sections, navigation, and updated logo reference.",
+  "frontend/src/components/TestimonialsCarousel.tsx": "Implements a testimonials carousel with navigation controls and fixed-height cards.",
+  "frontend/src/content/rates.ts": "Exports rate option definitions for 4, 8, and 16 team pricing tiers.",
+  "frontend/src/hooks/useActor.ts": "React hook that creates and manages an authenticated or anonymous backend actor with query invalidation.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Provides Internet Identity authentication context, login/logout handling, and identity persistence.",
+  "frontend/src/index.css": "Defines cricket-themed OKLCH color tokens and global typography rules for Tailwind.",
+  "frontend/src/main.tsx": "Initializes React root and wraps the app with InternetIdentityProvider and React Query client.",
+  "frontend/tailwind.config.js": "Tailwind CSS config enabling dark mode, custom colors, fonts, animations, and plugins for typography, container queries, and animations.",
+  "project_state.json": "Project metadata describing current version, features, requirements, and state for building the BidArena landing page."
+}

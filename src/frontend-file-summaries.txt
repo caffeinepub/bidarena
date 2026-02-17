@@ -1,0 +1,7 @@
+{
+  "frontend/src/index.css": "Global styles with cricket-themed OKLCH color system featuring vibrant green primary colors inspired by cricket fields, warm accent colors, and custom typography settings for both light and dark modes.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with custom fonts (Poppins display font), cricket-themed color tokens, custom shadows including glow effects, and fade-in animations.",
+  "frontend/src/content/rates.ts": "Defines the rate options data structure with three pricing tiers (4, 8, and 16 teams) including features, descriptions, and placeholder pricing text.",
+  "frontend/src/components/TestimonialsCarousel.tsx": "A custom testimonials carousel component with manual navigation controls (prev/next buttons and dot indicators), displaying cricket league user reviews with fixed height to prevent layout shift.",
+  "frontend/src/App.tsx": "Main single-page landing application for BidArena featuring a sticky header with navigation, hero section with CTA, how-to-use steps, pricing cards, testimonials carousel, contact information, and footer with smooth scroll navigation between sections, now using the user-provided logo asset."
+}

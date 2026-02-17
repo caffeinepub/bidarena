@@ -1,0 +1,47 @@
+{
+  "kind": "build_request",
+  "title": "Replace BidArena logo with user-provided logo asset",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-9",
+      "text": "Replace the currently used BidArena logo image with the user-provided logo asset, ensuring the updated logo appears everywhere the logo is rendered (at minimum: the header logo and the footer logo).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Yes...change the logo to wat I gave"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The header logo image is updated to the user-provided logo and renders without broken image links.",
+        "The footer logo image is updated to the user-provided logo and renders without broken image links.",
+        "No remaining <img> tags in the app reference the old logo path \"/assets/generated/bidarena-logo.dim_512x512.png\" unless the user-provided logo is intentionally placed at that same path/filename."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not serve images via the backend; keep the logo as a frontend static asset (e.g., under frontend/public).",
+    "Do not modify any files under frontend/src/components/ui or other frontend immutable paths listed in SYSTEM_CONTEXT."
+  ],
+  "nonGoals": [
+    "Do not redesign the landing page layout, colors, typography, or copy.",
+    "Do not add new sections or bidding functionality."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}

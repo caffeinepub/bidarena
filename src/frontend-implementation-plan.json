@@ -1,0 +1,28 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Replace BidArena logo with user-provided static asset",
+  "requirements": [
+    {
+      "id": "REQ-9",
+      "summary": "Replace the existing BidArena logo with the user-provided image wherever the logo is rendered (header and footer at minimum).",
+      "acceptanceCriteria": [
+        "The header logo image is updated to the user-provided logo and renders without broken image links.",
+        "The footer logo image is updated to the user-provided logo and renders without broken image links.",
+        "No remaining <img> tags in the app reference the old logo path \"/assets/generated/bidarena-logo.dim_512x512.png\" unless the user-provided logo is intentionally placed at that same path/filename."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/bidarena-logo.png",
+          "operation": "create",
+          "description": "Add the user-provided logo image as a frontend static asset by placing/copying the provided file (from the uploaded assets list, e.g., 88fc1627-70a4-428d-b7dd-d28a3e0a7e91.png) into this path so it can be referenced by the UI without using the backend."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Update all logo <img> usages (at minimum the header and footer) to reference the new static asset path \"/assets/bidarena-logo.png\" instead of \"/assets/generated/bidarena-logo.dim_512x512.png\", ensuring there are no remaining references to the old logo path."
+        }
+      ]
+    }
+  ]
+}

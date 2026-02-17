@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.75rem;
+        /* Cricket field green theme with warm accents */
+        --background: 0.98 0.01 140;
+        --foreground: 0.20 0.02 140;
+        --card: 1 0 0;
+        --card-foreground: 0.20 0.02 140;
+        --popover: 1 0 0;
+        --popover-foreground: 0.20 0.02 140;
+        /* Vibrant cricket green */
+        --primary: 0.55 0.18 145;
+        --primary-foreground: 0.99 0 0;
+        /* Warm secondary */
+        --secondary: 0.95 0.02 85;
+        --secondary-foreground: 0.25 0.02 85;
+        --muted: 0.96 0.01 140;
+        --muted-foreground: 0.50 0.02 140;
+        /* Warm accent - cricket ball red */
+        --accent: 0.65 0.20 25;
+        --accent-foreground: 0.99 0 0;
+        --destructive: 0.55 0.24 25;
+        --destructive-foreground: 0.99 0 0;
+        --border: 0.90 0.02 140;
+        --input: 0.90 0.02 140;
+        --ring: 0.55 0.18 145;
+        --chart-1: 0.55 0.18 145;
+        --chart-2: 0.65 0.20 25;
+        --chart-3: 0.70 0.15 85;
+        --chart-4: 0.45 0.15 200;
+        --chart-5: 0.60 0.18 60;
+    }
+
+    .dark {
+        --background: 0.15 0.02 140;
+        --foreground: 0.95 0.01 140;
+        --card: 0.20 0.02 140;
+        --card-foreground: 0.95 0.01 140;
+        --popover: 0.18 0.02 140;
+        --popover-foreground: 0.95 0.01 140;
+        --primary: 0.60 0.20 145;
+        --primary-foreground: 0.15 0.02 140;
+        --secondary: 0.25 0.02 85;
+        --secondary-foreground: 0.95 0.01 85;
+        --muted: 0.25 0.02 140;
+        --muted-foreground: 0.65 0.02 140;
+        --accent: 0.55 0.18 25;
+        --accent-foreground: 0.95 0 0;
+        --destructive: 0.60 0.22 25;
+        --destructive-foreground: 0.95 0 0;
+        --border: 0.30 0.02 140;
+        --input: 0.30 0.02 140;
+        --ring: 0.60 0.20 145;
+        --chart-1: 0.60 0.20 145;
+        --chart-2: 0.55 0.18 25;
+        --chart-3: 0.65 0.15 85;
+        --chart-4: 0.50 0.15 200;
+        --chart-5: 0.55 0.18 60;
+    }
+
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        @apply bg-background text-foreground;
+        font-feature-settings: "rlig" 1, "calt" 1;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        @apply font-bold tracking-tight;
+    }
+    
+    h1 {
+        @apply text-4xl md:text-5xl lg:text-6xl;
+    }
+    
+    h2 {
+        @apply text-3xl md:text-4xl lg:text-5xl;
+    }
+    
+    h3 {
+        @apply text-2xl md:text-3xl;
+    }
+}
+
