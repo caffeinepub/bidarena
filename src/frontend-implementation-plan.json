@@ -1,26 +1,50 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Replace BidArena logo with user-provided static asset",
+  "title": "BidArena opening logo splash animation",
   "requirements": [
     {
-      "id": "REQ-9",
-      "summary": "Replace the existing BidArena logo with the user-provided image wherever the logo is rendered (header and footer at minimum).",
+      "id": "REQ-1",
+      "summary": "Show a one-time-per-load full-screen logo splash overlay that pops in, fades out, then reveals the page content (respecting prefers-reduced-motion).",
       "acceptanceCriteria": [
-        "The header logo image is updated to the user-provided logo and renders without broken image links.",
-        "The footer logo image is updated to the user-provided logo and renders without broken image links.",
-        "No remaining <img> tags in the app reference the old logo path \"/assets/generated/bidarena-logo.dim_512x512.png\" unless the user-provided logo is intentionally placed at that same path/filename."
+        "On initial page load, the user sees a full-screen splash overlay with the logo centered before any of the page sections are visible.",
+        "The logo performs a short pop animation (scale-in / scale-up feel) and the splash then fades out smoothly.",
+        "After the fade-out completes, the splash overlay is removed/hidden and the normal page becomes visible and usable.",
+        "The splash runs once per page load (refresh triggers it again; client-side interactions do not re-trigger it).",
+        "If the user has prefers-reduced-motion enabled, the splash does not animate (or uses a near-instant transition) and content is revealed quickly.",
+        "The splash uses the existing logo asset already referenced in the app (currently /assets/IMG_20260211_212234_800.jpg) and does not introduce a new required image."
       ],
       "file_operations": [
         {
-          "path": "frontend/public/assets/bidarena-logo.png",
+          "path": "frontend/src/components/SplashOverlay.tsx",
           "operation": "create",
-          "description": "Add the user-provided logo image as a frontend static asset by placing/copying the provided file (from the uploaded assets list, e.g., 88fc1627-70a4-428d-b7dd-d28a3e0a7e91.png) into this path so it can be referenced by the UI without using the backend."
+          "description": "Create a reusable SplashOverlay component that renders a fixed full-screen overlay with the existing logo (/assets/IMG_20260211_212234_800.jpg), coordinates pop-then-fade timing, and supports prefers-reduced-motion to skip/shorten animations."
         },
         {
           "path": "frontend/src/App.tsx",
           "operation": "modify",
-          "description": "Update all logo <img> usages (at minimum the header and footer) to reference the new static asset path \"/assets/bidarena-logo.png\" instead of \"/assets/generated/bidarena-logo.dim_512x512.png\", ensuring there are no remaining references to the old logo path."
+          "description": "Wire SplashOverlay into the app so it appears on initial load, sits above all content, and prevents the underlying page sections from being visible/interactive until the splash finishes; ensure it runs once per full page load and does not re-trigger on in-app interactions."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Add Tailwind/CSS animation utilities for splash pop and fade-out without breaking existing hero fade-in animations.",
+      "acceptanceCriteria": [
+        "The splash animations are implemented via project styling (Tailwind config and/or global CSS) and are reusable and named clearly.",
+        "Existing page animations (e.g., current animate-fade-in usage) still work as before.",
+        "No console errors occur due to missing animation classes or misconfigured Tailwind build."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Add clearly named keyframes/animation entries for the splash pop and splash fade-out effects (distinct from existing fade-in) so they are reusable and do not conflict with the current animate-fade-in used in the hero section."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add any required global utility classes (e.g., animation fill-mode/forwards support) and reduced-motion-friendly defaults for the splash animations, ensuring existing global styling and current fade-in behavior remain unchanged."
         }
       ]
     }

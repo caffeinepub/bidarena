@@ -1,80 +1,24 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 5,
-  "summary": "Create a simple, easy-to-use landing webpage for a cricket auction/bidding platform called BidArena.",
+  "projectStateVersion": 3,
+  "summary": "New project",
   "architectural_notes": [],
   "known_issues": [],
-  "isFixRequest": true,
+  "isFixRequest": false,
   "existing_features": [
     {
-      "id": "feature-create-a-simple-single-page-landing-page-for-a-cricket-auction-bidding-platform-with-the-brand-name-bidarena-displayed-at-the-top-alongside-a-logo",
-      "title": "Create a simple, single-page landing page for a cricket auction/bidding platform with the brand name \"BidArena\" displayed at the top alongside a logo.",
+      "id": "feature-implement-an-opening-splash-overlay-that-displays-the-existing-bidarena-logo-centered-on-the-screen-when-the-site-first-loads-animates-the-logo-with-a-quick-pop-scale-up-and-then-fades-the-splash-out-revealing-the-main-page-content-only-after-the-splash-completes",
+      "title": "Implement an opening splash overlay that displays the existing BidArena logo centered on the screen when the site first loads, animates the logo with a quick “pop” (scale up) and then fades the splash out, revealing the main page content only after the splash completes.",
       "reqIds": [
         "REQ-1"
       ],
       "version": 1
     },
     {
-      "id": "feature-add-a-how-to-use-section-with-simple-english-instructions-describing-how-users-can-participate-in-bidding-on-bidarena",
-      "title": "Add a \"How to use\" section with simple, English instructions describing how users can participate in bidding on BidArena.",
+      "id": "feature-add-tailwind-css-animation-utilities-keyframes-classes-required-for-the-splash-pop-and-fade-out-effects-and-ensure-they-don-t-conflict-with-existing-fade-in-animations-used-in-the-hero-section",
+      "title": "Add Tailwind/CSS animation utilities (keyframes/classes) required for the splash “pop” and “fade out” effects and ensure they don’t conflict with existing fade-in animations used in the hero section.",
       "reqIds": [
         "REQ-2"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-add-a-primary-call-to-action-button-labeled-start-bidding-that-clearly-initiates-the-next-step-e-g-scrolls-to-the-rates-pricing-section-or-opens-a-simple-modal-explaining-next-steps",
-      "title": "Add a primary call-to-action button labeled \"Start Bidding\" that clearly initiates the next step (e.g., scrolls to the rates/pricing section or opens a simple modal explaining next steps).",
-      "reqIds": [
-        "REQ-3"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-add-a-reviews-testimonials-slideshow-carousel-section-that-cycles-through-multiple-user-reviews-with-simple-controls",
-      "title": "Add a reviews/testimonials slideshow (carousel) section that cycles through multiple user reviews with simple controls.",
-      "reqIds": [
-        "REQ-4"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-add-a-rates-section-showing-rates-for-different-combinations-of-teams-in-a-simple-table-or-card-layout-if-exact-rates-are-not-provided-display-clearly-editable-placeholder-rates-such-as-contact-for-pricing-per-combination",
-      "title": "Add a \"Rates\" section showing rates for different combinations of teams in a simple table or card layout; if exact rates are not provided, display clearly editable placeholder rates such as \"Contact for pricing\" per combination.",
-      "reqIds": [
-        "REQ-5"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-add-a-contact-section-that-displays-contact-information-e-g-email-phone-using-clearly-editable-placeholders-if-real-details-are-not-provided",
-      "title": "Add a \"Contact\" section that displays contact information (e.g., email/phone) using clearly editable placeholders if real details are not provided.",
-      "reqIds": [
-        "REQ-6"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-apply-a-coherent-creative-visual-theme-across-the-landing-page-colors-typography-spacing-and-section-styling-appropriate-for-a-cricket-auction-bidding-brand-avoiding-a-blue-purple-default-palette",
-      "title": "Apply a coherent, creative visual theme across the landing page (colors, typography, spacing, and section styling) appropriate for a cricket auction/bidding brand, avoiding a blue/purple default palette.",
-      "reqIds": [
-        "REQ-7"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-add-the-generated-bidarena-logo-asset-to-the-frontend-static-assets-and-use-it-in-the-header-hero-area-do-not-serve-images-via-the-backend",
-      "title": "Add the generated BidArena logo asset to the frontend static assets and use it in the header/hero area (do not serve images via the backend).",
-      "reqIds": [
-        "REQ-8"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-replace-the-currently-used-bidarena-logo-image-with-the-user-provided-logo-asset-ensuring-the-updated-logo-appears-everywhere-the-logo-is-rendered-at-minimum-the-header-logo-and-the-footer-logo",
-      "title": "Replace the currently used BidArena logo image with the user-provided logo asset, ensuring the updated logo appears everywhere the logo is rendered (at minimum: the header logo and the footer logo).",
-      "reqIds": [
-        "REQ-9"
       ],
       "version": 1
     }
@@ -82,43 +26,7 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Landing page header with BidArena logo and name at the top",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-2",
-      "summary": "Section with simple 'How to use' instructions",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-3",
-      "summary": "Start Bidding call-to-action button",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-4",
-      "summary": "Reviews slideshow/carousel section",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-5",
-      "summary": "Contact information section",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-6",
-      "summary": "Pricing/rates for different team-combination packages",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-7",
-      "summary": "Replace the generated BidArena logo with the user-provided logo asset",
+      "summary": "Add opening splash animation: show logo on page load, then fade it out to reveal the page content",
       "reqIds": [],
       "status": "pending"
     }

@@ -1,46 +1,52 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-12T13:02:53.641Z",
-  "summary": "The diff updates the header logo <img> in frontend/src/App.tsx to a new PNG path, but it does not provide evidence that the footer logo (or any other logo render locations) were updated, nor that the old logo path is fully removed. The diff also includes changes to metadata/state summary files that were not requested.",
+  "generatedAt": "2026-02-17T17:02:44.671Z",
+  "summary": "Splash overlay component was added and wired into App, with a pop animation and timed fade/removal plus reduced-motion handling. However, the diff also includes broad, unrequested styling/theme and Tailwind configuration changes, and the fade-out effect is not implemented as a named reusable Tailwind/CSS animation utility.",
   "missing_requirements": [
     {
-      "id": "REQ-9",
-      "requirement": "Replace the currently used BidArena logo image with the user-provided logo asset, ensuring the updated logo appears everywhere the logo is rendered (at minimum: the header logo and the footer logo).",
-      "reason": "Only the header <img> update is visible in the truncated App.tsx diff; there is no evidence in the provided diff summary that the footer logo <img> was updated to the user-provided asset.",
+      "id": "REQ-2",
+      "requirement": "Add Tailwind/CSS animation utilities (keyframes/classes) required for the splash “pop” and “fade out” effects and ensure they don’t conflict with existing fade-in animations used in the hero section.",
+      "reason": "A reusable Tailwind/CSS animation utility is added for the pop effect (`splash-pop`), but the splash fade-out is implemented via `transition-opacity duration-1000` plus React state toggling rather than a named/reusable animation utility for the fade-out effect.",
       "evidence": [
-        "frontend/src/App.tsx (truncated)"
-      ]
-    },
-    {
-      "id": "REQ-9",
-      "requirement": "No remaining <img> tags in the app reference the old logo path \"/assets/generated/bidarena-logo.dim_512x512.png\" unless the user-provided logo is intentionally placed at that same path/filename.",
-      "reason": "The diff summary does not show a complete search/replace or removal of the old logo path across the app. Because App.tsx is truncated and other files are not shown, it cannot be confirmed that no <img> tags still reference the old path.",
-      "evidence": [
-        "frontend/src/App.tsx (truncated)"
+        "frontend/src/components/SplashOverlay.tsx",
+        "frontend/tailwind.config.js"
       ]
     }
   ],
   "hallucinated_features": [
     {
-      "description": "Updating project state/metadata (project_state.json) unrelated to replacing the logo asset.",
-      "reason": "REQ-9 only requests swapping the logo asset references; changing project_state.json is not part of the stated requirements or acceptance criteria.",
+      "description": "Major global theme/color token changes (OKLCH palette, light/dark adjustments) unrelated to the splash overlay feature.",
+      "reason": "BuildRequest only asks for a splash overlay and related animation utilities; it does not request a redesign or theme overhaul.",
       "evidence": [
-        "project_state.json (truncated)"
+        "frontend/src/index.css"
       ]
     },
     {
-      "description": "Updating frontend-file-summaries.txt content/summary.",
-      "reason": "REQ-9 does not request changes to documentation/summary files; only the logo replacement behavior is requested.",
+      "description": "Tailwind configuration extensions for fonts (Poppins), cricket-themed tokens, and glow shadows beyond the requested splash animations.",
+      "reason": "BuildRequest only requires adding animation utilities for splash pop/fade; other Tailwind theming additions are not requested.",
       "evidence": [
+        "frontend/tailwind.config.js",
+        "frontend-file-summaries.txt"
+      ]
+    },
+    {
+      "description": "Updates/additions to non-splash features such as pricing content and a testimonials carousel.",
+      "reason": "BuildRequest explicitly limits scope to adding an opening logo splash and related animation utilities; modifying rates/testimonials is not requested.",
+      "evidence": [
+        "frontend/src/content/rates.ts",
+        "frontend/src/components/TestimonialsCarousel.tsx",
         "frontend-file-summaries.txt"
       ]
     }
   ],
-  "confidence": 0.66,
+  "confidence": 0.74,
   "changed_files": [
     "frontend-file-summaries.txt",
     "frontend/src/App.tsx",
+    "frontend/src/components/SplashOverlay.tsx",
+    "frontend/src/index.css",
+    "frontend/tailwind.config.js",
     "project_state.json"
   ]
 }

@@ -2,10 +2,11 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-replace-the-currently-used-bidarena-logo-image-with-the-user-provided-logo-asset-ensuring-the-updated-logo-appears-everywhere-the-logo-is-rendered-at-minimum-the-header-logo-and-the-footer-logo",
-      "featureTitle": "Replace the currently used BidArena logo image with the user-provided logo asset, ensuring the updated logo appears everywhere the logo is rendered (at minimum: the header logo and the footer logo).",
+      "featureId": "feature-implement-an-opening-splash-overlay-that-displays-the-existing-bidarena-logo-centered-on-the-screen-when-the-site-first-loads-animates-the-logo-with-a-quick-pop-scale-up-and-then-fades-the-splash-out-revealing-the-main-page-content-only-after-the-splash-completes",
+      "featureTitle": "Implement an opening splash overlay that displays the existing BidArena logo centered on the screen when the site first loads, animates the logo with a quick “pop” (scale up) and then fades the splash out, revealing the main page content only after the splash completes.",
       "files": [
-        "frontend/src/App.tsx"
+        "frontend/src/App.tsx",
+        "frontend/src/components/SplashOverlay.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -15,7 +16,26 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-9"
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-tailwind-css-animation-utilities-keyframes-classes-required-for-the-splash-pop-and-fade-out-effects-and-ensure-they-don-t-conflict-with-existing-fade-in-animations-used-in-the-hero-section",
+      "featureTitle": "Add Tailwind/CSS animation utilities (keyframes/classes) required for the splash “pop” and “fade out” effects and ensure they don’t conflict with existing fade-in animations used in the hero section.",
+      "files": [
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
       ],
       "confidence": "high"
     }

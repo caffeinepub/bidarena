@@ -1,36 +1,52 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-12T13:02:53.643Z",
+  "generatedAt": "2026-02-17T17:02:44.674Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 1,
-    "implemented": 1,
+    "total": 2,
+    "implemented": 2,
     "items": [
       {
-        "id": "REQ-9",
-        "summary": "Replace the currently used BidArena logo image with the user-provided logo asset, ensuring the updated logo appears everywhere the logo is rendered (at minimum: the header logo and the footer logo).",
+        "id": "REQ-1",
+        "summary": "Implement an opening splash overlay that displays the existing BidArena logo centered on the screen when the site first loads, animates the logo with a quick “pop” (scale up) and then fades the splash out, revealing the main page content only after the splash completes.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/public/assets/bidarena-logo.png",
+          "frontend/src/components/SplashOverlay.tsx",
           "frontend/src/App.tsx"
         ],
         "matchedFiles": [
+          "frontend/src/components/SplashOverlay.tsx",
           "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-2",
+        "summary": "Add Tailwind/CSS animation utilities (keyframes/classes) required for the splash “pop” and “fade out” effects and ensure they don’t conflict with existing fade-in animations used in the hero section.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/tailwind.config.js",
+          "frontend/src/index.css"
+        ],
+        "matchedFiles": [
+          "frontend/tailwind.config.js",
+          "frontend/src/index.css"
         ]
       }
     ]
   },
   "changedFiles": [
     "build-request.json",
-    "build-template/README.md",
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
     "frontend/src/App.tsx",
+    "frontend/src/components/SplashOverlay.tsx",
+    "frontend/src/index.css",
+    "frontend/tailwind.config.js",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

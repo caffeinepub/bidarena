@@ -1,34 +1,58 @@
 {
   "kind": "build_request",
-  "title": "Replace BidArena logo with user-provided logo asset",
+  "title": "Add opening logo splash animation (pop in, fade out, then reveal page)",
+  "projectName": "BidArena",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-9",
-      "text": "Replace the currently used BidArena logo image with the user-provided logo asset, ensuring the updated logo appears everywhere the logo is rendered (at minimum: the header logo and the footer logo).",
+      "id": "REQ-1",
+      "text": "Implement an opening splash overlay that displays the existing BidArena logo centered on the screen when the site first loads, animates the logo with a quick “pop” (scale up) and then fades the splash out, revealing the main page content only after the splash completes.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4"
+          "msg-1"
         ],
         "quotes": [
-          "Yes...change the logo to wat I gave"
+          "When the webpage opens I need my logo to pop up and fade off and then the page should appear"
         ]
       },
       "acceptanceCriteria": [
-        "The header logo image is updated to the user-provided logo and renders without broken image links.",
-        "The footer logo image is updated to the user-provided logo and renders without broken image links.",
-        "No remaining <img> tags in the app reference the old logo path \"/assets/generated/bidarena-logo.dim_512x512.png\" unless the user-provided logo is intentionally placed at that same path/filename."
+        "On initial page load, the user sees a full-screen splash overlay with the logo centered before any of the page sections are visible.",
+        "The logo performs a short pop animation (scale-in / scale-up feel) and the splash then fades out smoothly.",
+        "After the fade-out completes, the splash overlay is removed/hidden and the normal page becomes visible and usable.",
+        "The splash runs once per page load (refresh triggers it again; client-side interactions do not re-trigger it).",
+        "If the user has prefers-reduced-motion enabled, the splash does not animate (or uses a near-instant transition) and content is revealed quickly.",
+        "The splash uses the existing logo asset already referenced in the app (currently /assets/IMG_20260211_212234_800.jpg) and does not introduce a new required image."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Add Tailwind/CSS animation utilities (keyframes/classes) required for the splash “pop” and “fade out” effects and ensure they don’t conflict with existing fade-in animations used in the hero section.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "my logo to pop up and fade off"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The splash animations are implemented via project styling (Tailwind config and/or global CSS) and are reusable and named clearly.",
+        "Existing page animations (e.g., current animate-fade-in usage) still work as before.",
+        "No console errors occur due to missing animation classes or misconfigured Tailwind build."
       ]
     }
   ],
   "constraints": [
-    "Do not serve images via the backend; keep the logo as a frontend static asset (e.g., under frontend/public).",
-    "Do not modify any files under frontend/src/components/ui or other frontend immutable paths listed in SYSTEM_CONTEXT."
+    "Do not modify files under frontend/src/components/ui (read-only shadcn components).",
+    "Do not modify immutable hook/provider files (frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts) or the bootstrap entry (frontend/src/main.tsx).",
+    "Backend must remain a single Motoko actor; this change should not require any backend updates."
   ],
   "nonGoals": [
-    "Do not redesign the landing page layout, colors, typography, or copy.",
-    "Do not add new sections or bidding functionality."
+    "Creating or changing authentication behavior (Internet Identity).",
+    "Adding new pages, routes, or backend APIs.",
+    "Replacing or redesigning the existing logo asset."
   ],
   "imageRequirements": {
     "required": [],
